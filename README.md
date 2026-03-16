@@ -215,11 +215,31 @@ GET /api/categories
 ## 📁 Project Structure
 
 ```
+data/
+└── excuses.json  # The excuse database (120 excuses, 10 categories)
 src/
-├── app.ts        # Routes & API logic
+├── app.ts        # Routes, middleware & API logic
 ├── dev.ts        # Development server entry point
+├── excuses.ts    # Types & re-exports from the JSON
 ├── index.ts      # Export wrapper
-└── excuses.ts    # The excuse database (120 excuses, 10 categories)
+└── rate-limit.ts # Per-IP rate limiting middleware
+```
+
+### Using the raw data in your frontend
+
+Don't need the API? Grab the JSON directly via GitHub:
+
+```
+https://raw.githubusercontent.com/MichalZak17/Its-Ridiculous-API/master/data/excuses.json
+```
+
+```javascript
+fetch('https://raw.githubusercontent.com/MichalZak17/Its-Ridiculous-API/master/data/excuses.json')
+  .then(r => r.json())
+  .then(data => {
+    console.log(data.categories); // ["pets", "tech", ...]
+    console.log(data.excuses);    // [{ id, excuse, ... }, ...]
+  });
 ```
 
 ---
@@ -230,7 +250,17 @@ Got a ridiculous excuse that deserves to be in the API? You can add it!
 
 1. Fork the repository
 2. Create your branch (`git checkout -b feature/my-excuse`)
-3. Add your excuse to `src/excuses.ts`
+3. Add your excuse to **`data/excuses.json`** — follow the existing format:
+   ```json
+   {
+     "id": 121,
+     "excuse": "Your excuse here",
+     "ridiculous_rating": 8,
+     "category": "pets",
+     "will_work": false,
+     "teacher_reaction": "Teacher's response here"
+   }
+   ```
 4. Commit your changes (`git commit -m 'Add excuse about time-traveling hamster'`)
 5. Push to the branch (`git push origin feature/my-excuse`)
 6. Open a Pull Request
