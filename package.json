@@ -1,0 +1,16 @@
+{
+  "name": "its-ridiculous-api",
+  "type": "module",
+  "dependencies": {
+    "hono": "^4.12.8"
+  },
+  "scripts": {
+    "dev": "tsx src/dev.ts"
+  },
+  "devDependencies": {
+    "@hono/node-server": "^1.19.11",
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
