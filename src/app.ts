@@ -3,10 +3,22 @@ import { cors } from 'hono/cors';
 import { describeRoute, resolver, openAPIRouteHandler } from 'hono-openapi';
 import { z } from 'zod';
 import { excuses, CATEGORIES, type Category } from './excuses.js';
+import { rateLimit } from './rate-limit.js';
 
 const app = new Hono().basePath('/api');
 
 app.use('*', cors());
+
+const apiLimiter = rateLimit({ limit: 60, windowMs: 60_000 });
+const docsLimiter = rateLimit({ limit: 10, windowMs: 60_000 });
+
+app.use('/docs', docsLimiter);
+app.use('/openapi.json', docsLimiter);
+app.use('*', async (c, next) => {
+    const path = c.req.path.replace(/^\/api/, '');
+    if (path === '/docs' || path === '/openapi.json') return next();
+    return apiLimiter(c, next);
+});
 
 function pick<T>(arr: T[]): T {
     return arr[Math.floor(Math.random() * arr.length)];
