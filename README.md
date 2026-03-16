@@ -74,7 +74,6 @@ npm install
 
 ```bash
 npm run dev
-# → Server running at http://localhost:3000
 ```
 
 ---
@@ -95,6 +94,8 @@ fetch('http://localhost:3000/api/excuse')
 ## 📡 API Endpoints
 
 Base URL: `/api`
+
+> **Interactive docs available at [`/api/docs`](http://localhost:3000/api/docs)** — powered by Swagger UI & OpenAPI 3.1
 
 ### Get a Random Excuse
 
@@ -179,16 +180,16 @@ GET /api/categories
 
 | Category          | Description           | Example                                                                      |
 | ----------------- | --------------------- | ---------------------------------------------------------------------------- |
-| 🐾 `pets`         | Animal disasters      | _"My parrot memorized my essay and won't stop reciting it incorrectly"_      |
-| 💻 `tech`         | Technology failures   | _"My laptop gained sentience and refused to open Word"_                      |
-| 👨‍👩‍👧 `family`       | Family emergencies    | _"My mom accidentally used my thesis as a shopping list"_                    |
-| 🌧️ `weather`      | Crazy weather events  | _"A tornado specifically targeted my backpack"_                              |
-| 🤔 `existential`  | Deep thoughts         | _"I realized homework is a social construct"_                                |
-| 🤒 `health`       | Medical problems      | _"I'm allergic to deadlines — it's a real condition"_                        |
-| ⏰ `time`         | Time-travel mix-ups   | _"I finished it in a parallel universe but can't access it from this one"_   |
-| 👻 `supernatural` | Ghosts and magic      | _"A ghost possessed my printer and printed 500 blank pages"_                 |
-| 🏫 `school`       | School issues         | _"The classroom clock was running backwards so I thought it wasn't due yet"_ |
-| 🎨 `creative`     | Wildly creative stuff | _"I turned my homework into an NFT and someone bought it"_                   |
+| `pets`         | Animal disasters      | _"My parrot memorized my essay and won't stop reciting it incorrectly"_      |
+| `tech`         | Technology failures   | _"My laptop gained sentience and refused to open Word"_                      |
+| `family`       | Family emergencies    | _"My mom accidentally used my thesis as a shopping list"_                    |
+| `weather`      | Crazy weather events  | _"A tornado specifically targeted my backpack"_                              |
+| `existential`  | Deep thoughts         | _"I realized homework is a social construct"_                                |
+| `health`       | Medical problems      | _"I'm allergic to deadlines — it's a real condition"_                        |
+| `time`         | Time-travel mix-ups   | _"I finished it in a parallel universe but can't access it from this one"_   |
+| `supernatural` | Ghosts and magic      | _"A ghost possessed my printer and printed 500 blank pages"_                 |
+| `school`       | School issues         | _"The classroom clock was running backwards so I thought it wasn't due yet"_ |
+| `creative`     | Wildly creative stuff | _"I turned my homework into an NFT and someone bought it"_                   |
 
 ---
 
